@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Crop Price Forecast</title>
+    <style>
+        .container {
+            text-align: center;
+            margin-top: 50px;
+        }
+        .crop-box {
+            display: inline-block;
+            padding: 20px;
+            margin: 20px;
+            background-color: #90ee90;
+            border-radius: 12px;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        .crop-box:hover {
+            background-color: #66cc66;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Select a Crop to Predict Price</h1>
+        {% for crop in crops %}
+        <div class="crop-box" onclick="location.href='/predict/{{ crop }}'">
+            {{ crop.title() }}
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

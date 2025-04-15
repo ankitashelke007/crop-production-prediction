@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ crop }} Price Prediction</title>
+    <style>
+        table {
+            margin: auto;
+            margin-top: 40px;
+            border-collapse: collapse;
+            width: 60%;
+        }
+        th, td {
+            padding: 12px;
+            border: 1px solid #ccc;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        h2 {
+            text-align: center;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+    <h2>{{ crop }} - Next 12 Month Price Forecast</h2>
+    <table>
+        <tr>
+            <th>Date</th>
+            <th>Predicted Price (yhat)</th>
+        </tr>
+        {% for row in forecast %}
+        <tr>
+            <td>{{ row.ds.strftime('%Y-%m-%d') }}</td>
+
+            <td>{{ row.yhat }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
